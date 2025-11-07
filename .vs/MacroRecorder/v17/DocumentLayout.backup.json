@@ -1,0 +1,65 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\C#\\MacroRecorder\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A77BC733-1D5F-474C-A3E0-D89F34C5E319}|MacroRecorder\\MacroRecorder.csproj|D:\\C#\\MacroRecorder\\macrorecorder\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A77BC733-1D5F-474C-A3E0-D89F34C5E319}|MacroRecorder\\MacroRecorder.csproj|solutionrelative:macrorecorder\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A77BC733-1D5F-474C-A3E0-D89F34C5E319}|MacroRecorder\\MacroRecorder.csproj|D:\\C#\\MacroRecorder\\macrorecorder\\form1.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A77BC733-1D5F-474C-A3E0-D89F34C5E319}|MacroRecorder\\MacroRecorder.csproj|solutionrelative:macrorecorder\\form1.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{40ea2e6b-2121-4bb8-a43e-c83c04b51041}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\C#\\MacroRecorder\\MacroRecorder\\Program.cs",
+              "RelativeDocumentMoniker": "MacroRecorder\\Program.cs",
+              "ToolTip": "D:\\C#\\MacroRecorder\\MacroRecorder\\Program.cs",
+              "RelativeToolTip": "MacroRecorder\\Program.cs",
+              "ViewState": "AgIAACEDAAAAAAAAAAAcwCsDAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-06T19:50:23.238Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Form1.Designer.cs",
+              "DocumentMoniker": "D:\\C#\\MacroRecorder\\MacroRecorder\\Form1.Designer.cs",
+              "RelativeDocumentMoniker": "MacroRecorder\\Form1.Designer.cs",
+              "ToolTip": "D:\\C#\\MacroRecorder\\MacroRecorder\\Form1.Designer.cs",
+              "RelativeToolTip": "MacroRecorder\\Form1.Designer.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAA/wBYAAABHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-06T19:53:58.996Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
