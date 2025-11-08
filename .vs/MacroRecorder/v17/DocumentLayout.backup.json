@@ -22,24 +22,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "MacroForm.cs",
-              "DocumentMoniker": "D:\\C#\\dddd\\MacroRecorder\\MacroRecorder\\MacroForm.cs",
-              "RelativeDocumentMoniker": "MacroRecorder\\MacroForm.cs",
-              "ToolTip": "D:\\C#\\dddd\\MacroRecorder\\MacroRecorder\\MacroForm.cs*",
-              "RelativeToolTip": "MacroRecorder\\MacroForm.cs*",
-              "ViewState": "AgIAAHYBAAAAAAAAAAAqwJMBAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-08T12:28:48.59Z",
-              "EditorCaption": ""
             },
             {
               "$type": "Bookmark",
@@ -51,13 +38,26 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MacroForm.cs",
+              "DocumentMoniker": "D:\\C#\\dddd\\MacroRecorder\\MacroRecorder\\MacroForm.cs",
+              "RelativeDocumentMoniker": "MacroRecorder\\MacroForm.cs",
+              "ToolTip": "D:\\C#\\dddd\\MacroRecorder\\MacroRecorder\\MacroForm.cs*",
+              "RelativeToolTip": "MacroRecorder\\MacroForm.cs*",
+              "ViewState": "AgIAAKABAAAAAAAAAAAqwL0BAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-08T12:28:48.59Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 1,
               "Title": "UIFactory.cs",
               "DocumentMoniker": "D:\\C#\\dddd\\MacroRecorder\\MacroRecorder\\UIFactory.cs",
               "RelativeDocumentMoniker": "MacroRecorder\\UIFactory.cs",
               "ToolTip": "D:\\C#\\dddd\\MacroRecorder\\MacroRecorder\\UIFactory.cs*",
               "RelativeToolTip": "MacroRecorder\\UIFactory.cs*",
-              "ViewState": "AgIAANwAAAAAAAAAAAAqwPkAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAJcBAAAAAAAAAAAqwLQBAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-08T10:48:52.123Z",
               "EditorCaption": ""
@@ -72,8 +72,7 @@
               "RelativeToolTip": "MacroRecorder\\Form1.Designer.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-06T19:53:58.996Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-06T19:53:58.996Z"
             }
           ]
         }

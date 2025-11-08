@@ -19,11 +19,12 @@ namespace MacroRecorderPro.UI
         private readonly PlaybackConfiguration playbackConfig;
         private readonly MacroCoordinator coordinator;
 
-        private Button btnRecord, btnPlay, btnClear, btnSave, btnLoad;
+        private GradientButton btnRecord, btnPlay;
+        private ModernButton btnClear, btnSave, btnLoad;
         private Label lblStatus, lblCount, lblSpeed;
-        private CheckBox chkRecordMouse, chkHighPrecision;
-        private TrackBar trackSpeed;
-        private NumericUpDown numLoops;
+        private ModernCheckBox chkRecordMouse, chkHighPrecision;
+        private ModernTrackBar trackSpeed;
+        private ModernNumericUpDown numLoops;
         private GradientPanel headerPanel, statusPanel;
         private Panel controlPanel;
         private System.Windows.Forms.Timer updateTimer;
@@ -272,11 +273,21 @@ namespace MacroRecorderPro.UI
             base.OnFormClosing(e);
         }
 
+        protected override void OnPaint(PaintEventArgs e)
+        {
+            base.OnPaint(e);
+            // Добавляем легкое свечение по краям формы
+            using (Pen glowPen = new Pen(Color.FromArgb(30, ColorScheme.AccentLight), 2))
+            {
+                e.Graphics.DrawRectangle(glowPen, 0, 0, Width - 1, Height - 1);
+            }
+        }
+
         private void InitializeUI()
         {
             Text = "Macro Recorder Pro";
-            ClientSize = new Size(480, 420);
-            MinimumSize = new Size(480, 420);
+            ClientSize = new Size(520, 500);
+            MinimumSize = new Size(520, 500);
             StartPosition = FormStartPosition.CenterScreen;
             FormBorderStyle = FormBorderStyle.Sizable;
             MaximizeBox = false;
@@ -295,22 +306,38 @@ namespace MacroRecorderPro.UI
             headerPanel = new GradientPanel
             {
                 Dock = DockStyle.Top,
-                Height = 70,
+                Height = 90,
                 GradientColorStart = ColorScheme.AccentDark,
+                GradientColorMiddle = ColorScheme.Accent,
                 GradientColorEnd = ColorScheme.AccentLight,
-                GradientAngle = 135f
+                GradientAngle = 135f,
+                UseThreeColorGradient = true
             };
 
             var lblTitle = new Label
             {
-                Text = "MACRO RECORDER PRO",
-                Dock = DockStyle.Fill,
-                Font = new Font("Segoe UI", 14, FontStyle.Bold),
+                Text = "MACRO RECORDER",
+                Location = new Point(0, 20),
+                Size = new Size(520, 30),
+                Font = new Font("Segoe UI", 16, FontStyle.Bold),
                 ForeColor = Color.White,
                 TextAlign = ContentAlignment.MiddleCenter,
                 BackColor = Color.Transparent
             };
+
+            var lblSubtitle = new Label
+            {
+                Text = "PRO EDITION",
+                Location = new Point(0, 52),
+                Size = new Size(520, 20),
+                Font = new Font("Segoe UI", 9, FontStyle.Regular),
+                ForeColor = Color.FromArgb(200, 255, 255, 255),
+                TextAlign = ContentAlignment.MiddleCenter,
+                BackColor = Color.Transparent
+            };
+
             headerPanel.Controls.Add(lblTitle);
+            headerPanel.Controls.Add(lblSubtitle);
         }
 
         private void CreateControlPanel()
@@ -319,48 +346,61 @@ namespace MacroRecorderPro.UI
             {
                 Dock = DockStyle.Fill,
                 BackColor = ColorScheme.Background,
-                Padding = new Padding(20, 15, 20, 15)
+                Padding = new Padding(25, 20, 25, 20)
             };
 
-            btnRecord = UIFactory.CreateGradientButton("● RECORD (F9)", 0, 10,
-                ColorScheme.SuccessDark, ColorScheme.SuccessGlow);
+            btnRecord = UIFactory.CreateGradientButton("● RECORD (F9)", 0, 15,
+                ColorScheme.SuccessDark, ColorScheme.Success, ColorScheme.SuccessGlow);
             btnRecord.Click += OnRecordClick;
 
-            btnPlay = UIFactory.CreateGradientButton("▶ PLAY", 0, 75,
-                ColorScheme.AccentDark, ColorScheme.AccentLight);
+            btnPlay = UIFactory.CreateGradientButton("▶ PLAY", 0, 85,
+                ColorScheme.AccentDark, ColorScheme.Accent, ColorScheme.AccentLight);
             btnPlay.Click += OnPlayClick;
             btnPlay.Enabled = false;
 
-            var settingsY = 140;
+            var settingsY = 155;
 
-            chkRecordMouse = UIFactory.CreateCheckBox("Record Mouse Moves", 10, settingsY);
+            // Settings card
+            var settingsCard = new Panel
+            {
+                Location = new Point(10, settingsY),
+                Size = new Size(450, 130),
+                BackColor = ColorScheme.Surface
+            };
+            UIFactory.ApplyRoundedCorners(settingsCard, 20);
+
+            chkRecordMouse = UIFactory.CreateCheckBox("Record Mouse Moves", 15, 15);
             chkRecordMouse.Checked = true;
             chkRecordMouse.CheckedChanged += (s, e) => recordingConfig.RecordMouseMoves = chkRecordMouse.Checked;
 
-            chkHighPrecision = UIFactory.CreateCheckBox("High Precision", 250, settingsY);
+            chkHighPrecision = UIFactory.CreateCheckBox("High Precision Mode", 260, 15);
             chkHighPrecision.ForeColor = ColorScheme.AccentLight;
             chkHighPrecision.CheckedChanged += (s, e) => recordingConfig.HighPrecision = chkHighPrecision.Checked;
 
-            var lblLoops = UIFactory.CreateLabel("Loops:", 10, settingsY + 40);
-            numLoops = UIFactory.CreateNumericUpDown(70, settingsY + 38);
+            var lblLoops = UIFactory.CreateLabel("Loops:", 15, 52);
+            numLoops = UIFactory.CreateNumericUpDown(80, 50);
 
-            lblSpeed = UIFactory.CreateLabel("Speed: 100%", 160, settingsY + 40, 100);
-            trackSpeed = UIFactory.CreateTrackBar(270, settingsY + 35);
+            lblSpeed = UIFactory.CreateLabel("Speed: 100%", 15, 87, 110);
+            trackSpeed = UIFactory.CreateTrackBar(130, 82);
             trackSpeed.ValueChanged += (s, e) => lblSpeed.Text = $"Speed: {trackSpeed.Value}%";
 
-            var btnY = settingsY + 85;
-            btnSave = UIFactory.CreateSmallButton("💾 Save", 10, btnY, ColorScheme.Surface);
+            settingsCard.Controls.AddRange(new Control[] {
+                chkRecordMouse, chkHighPrecision,
+                lblLoops, numLoops, lblSpeed, trackSpeed
+            });
+
+            var btnY = settingsY + 145;
+            btnSave = UIFactory.CreateModernButton("💾 Save", 10, btnY);
             btnSave.Click += OnSaveClick;
 
-            btnLoad = UIFactory.CreateSmallButton("📂 Load", 155, btnY, ColorScheme.Surface);
+            btnLoad = UIFactory.CreateModernButton("📂 Load", 170, btnY);
             btnLoad.Click += OnLoadClick;
 
-            btnClear = UIFactory.CreateSmallButton("🗑 Clear", 300, btnY, ColorScheme.DangerDark);
+            btnClear = UIFactory.CreateModernButton("🗑 Clear", 330, btnY);
             btnClear.Click += OnClearClick;
 
             controlPanel.Controls.AddRange(new Control[] {
-                btnRecord, btnPlay, chkRecordMouse, chkHighPrecision,
-                lblLoops, numLoops, lblSpeed, trackSpeed,
+                btnRecord, btnPlay, settingsCard,
                 btnSave, btnLoad, btnClear
             });
         }
@@ -370,18 +410,20 @@ namespace MacroRecorderPro.UI
             statusPanel = new GradientPanel
             {
                 Dock = DockStyle.Bottom,
-                Height = 90,
+                Height = 100,
                 GradientColorStart = ColorScheme.Surface,
-                GradientColorEnd = ColorScheme.SurfaceLight,
-                GradientAngle = 45f
+                GradientColorMiddle = ColorScheme.SurfaceLight,
+                GradientColorEnd = ColorScheme.Surface,
+                GradientAngle = 90f,
+                UseThreeColorGradient = true
             };
 
             lblStatus = new Label
             {
                 Text = "Ready",
-                Location = new Point(15, 15),
-                Size = new Size(450, 30),
-                Font = new Font("Segoe UI", 11, FontStyle.Bold),
+                Location = new Point(20, 20),
+                Size = new Size(480, 30),
+                Font = new Font("Segoe UI", 12, FontStyle.Bold),
                 ForeColor = ColorScheme.TextSecondary,
                 TextAlign = ContentAlignment.MiddleCenter,
                 BackColor = Color.Transparent
@@ -390,9 +432,9 @@ namespace MacroRecorderPro.UI
             lblCount = new Label
             {
                 Text = "Actions: 0 | Duration: 0.0s",
-                Location = new Point(15, 50),
-                Size = new Size(450, 25),
-                Font = new Font("Segoe UI", 9f),
+                Location = new Point(20, 55),
+                Size = new Size(480, 25),
+                Font = new Font("Segoe UI", 9.5f),
                 ForeColor = ColorScheme.TextSecondary,
                 TextAlign = ContentAlignment.TopCenter,
                 BackColor = Color.Transparent
