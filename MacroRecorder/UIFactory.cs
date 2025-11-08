@@ -25,7 +25,6 @@ namespace MacroRecorderPro.UI
 
             if (UseThreeColorGradient)
             {
-                // Создаем трехцветный градиент
                 using (LinearGradientBrush brush = new LinearGradientBrush(
                     ClientRectangle,
                     GradientColorStart,
@@ -59,7 +58,7 @@ namespace MacroRecorderPro.UI
         public Color GradientColorStart { get; set; } = Color.Purple;
         public Color GradientColorMiddle { get; set; } = Color.Magenta;
         public Color GradientColorEnd { get; set; } = Color.Blue;
-        public int BorderRadius { get; set; } = 18;
+        public int BorderRadius { get; set; } = 20;
         private bool isHovered = false;
         private bool isPressed = false;
 
@@ -109,31 +108,30 @@ namespace MacroRecorderPro.UI
             Rectangle rect = new Rectangle(0, 0, Width - 1, Height - 1);
             GraphicsPath path = GetRoundedRectangle(rect, BorderRadius);
 
-            // Эффект нажатия
-            float scale = isPressed ? 0.95f : 1f;
+            float scale = isPressed ? 0.97f : 1f;
             if (isPressed)
             {
                 g.TranslateTransform(Width * (1 - scale) / 2, Height * (1 - scale) / 2);
                 g.ScaleTransform(scale, scale);
             }
 
-            // Тень
+            // Мягкая тень
             if (!isPressed && Enabled)
             {
-                Rectangle shadowRect = new Rectangle(3, 3, Width - 6, Height - 6);
+                Rectangle shadowRect = new Rectangle(2, 3, Width - 4, Height - 4);
                 GraphicsPath shadowPath = GetRoundedRectangle(shadowRect, BorderRadius);
                 using (PathGradientBrush shadowBrush = new PathGradientBrush(shadowPath))
                 {
-                    shadowBrush.CenterColor = Color.FromArgb(80, 0, 0, 0);
+                    shadowBrush.CenterColor = Color.FromArgb(60, 0, 0, 0);
                     shadowBrush.SurroundColors = new[] { Color.FromArgb(0, 0, 0, 0) };
                     g.FillPath(shadowBrush, shadowPath);
                 }
             }
 
-            // Градиентный фон с 3 цветами
-            Color startColor = isHovered ? ControlPaint.Light(GradientColorStart, 0.15f) : GradientColorStart;
-            Color middleColor = isHovered ? ControlPaint.Light(GradientColorMiddle, 0.15f) : GradientColorMiddle;
-            Color endColor = isHovered ? ControlPaint.Light(GradientColorEnd, 0.15f) : GradientColorEnd;
+            // Градиент
+            Color startColor = isHovered ? ControlPaint.Light(GradientColorStart, 0.1f) : GradientColorStart;
+            Color middleColor = isHovered ? ControlPaint.Light(GradientColorMiddle, 0.1f) : GradientColorMiddle;
+            Color endColor = isHovered ? ControlPaint.Light(GradientColorEnd, 0.1f) : GradientColorEnd;
 
             using (LinearGradientBrush brush = new LinearGradientBrush(rect, startColor, endColor, 135f))
             {
@@ -144,37 +142,30 @@ namespace MacroRecorderPro.UI
                 g.FillPath(brush, path);
             }
 
-            // Стеклянный эффект (glass morphism)
-            Rectangle glassRect = new Rectangle(0, 0, Width, Height / 2);
+            // Стеклянный блик сверху
+            Rectangle glassRect = new Rectangle(0, 0, Width, Height / 3);
             GraphicsPath glassPath = GetRoundedRectangle(glassRect, BorderRadius);
             using (LinearGradientBrush glassBrush = new LinearGradientBrush(
                 glassRect,
-                Color.FromArgb(40, 255, 255, 255),
+                Color.FromArgb(35, 255, 255, 255),
                 Color.FromArgb(0, 255, 255, 255),
                 90f))
             {
                 g.FillPath(glassBrush, glassPath);
             }
 
-            // Граница с градиентом
+            // Тонкая светлая граница
             if (!isPressed && Enabled)
             {
-                using (LinearGradientBrush borderBrush = new LinearGradientBrush(
-                    rect,
-                    Color.FromArgb(100, 255, 255, 255),
-                    Color.FromArgb(30, 255, 255, 255),
-                    135f))
+                using (Pen borderPen = new Pen(Color.FromArgb(80, 255, 255, 255), 1.2f))
                 {
-                    using (Pen borderPen = new Pen(borderBrush, 1.5f))
-                    {
-                        g.DrawPath(borderPen, path);
-                    }
+                    g.DrawPath(borderPen, path);
                 }
             }
 
-            // Текст с тенью
+            // Текст с легкой тенью
             Rectangle textRect = new Rectangle(1, 1, Width, Height);
-            TextRenderer.DrawText(g, Text, Font, textRect, Color.FromArgb(100, 0, 0, 0),
+            TextRenderer.DrawText(g, Text, Font, textRect, Color.FromArgb(80, 0, 0, 0),
                 TextFormatFlags.HorizontalCenter | TextFormatFlags.VerticalCenter);
 
             textRect = new Rectangle(0, 0, Width, Height);
@@ -197,10 +188,11 @@ namespace MacroRecorderPro.UI
         }
     }
 
-    // Modern Button (для маленьких кнопок)
+    // Modern Button
     public class ModernButton : Button
     {
         private bool isHovered = false;
+        private bool isPressed = false;
 
         public ModernButton()
         {
@@ -208,22 +200,38 @@ namespace MacroRecorderPro.UI
             FlatAppearance.BorderSize = 0;
             Cursor = Cursors.Hand;
             BackColor = ColorScheme.Surface;
-            ForeColor = Color.White;
-            Font = new Font("Segoe UI", 9, FontStyle.Bold);
+            ForeColor = ColorScheme.TextPrimary;
+            Font = new Font("Segoe UI", 9.5f, FontStyle.Regular);
+            DoubleBuffered = true;
         }
 
         protected override void OnMouseEnter(EventArgs e)
         {
             base.OnMouseEnter(e);
             isHovered = true;
-            BackColor = ColorScheme.SurfaceLight;
+            Invalidate();
         }
 
         protected override void OnMouseLeave(EventArgs e)
         {
             base.OnMouseLeave(e);
             isHovered = false;
-            BackColor = ColorScheme.Surface;
+            isPressed = false;
+            Invalidate();
+        }
+
+        protected override void OnMouseDown(MouseEventArgs mevent)
+        {
+            base.OnMouseDown(mevent);
+            isPressed = true;
+            Invalidate();
+        }
+
+        protected override void OnMouseUp(MouseEventArgs mevent)
+        {
+            base.OnMouseUp(mevent);
+            isPressed = false;
+            Invalidate();
         }
 
         protected override void OnPaint(PaintEventArgs pevent)
@@ -233,13 +241,17 @@ namespace MacroRecorderPro.UI
 
             Rectangle rect = new Rectangle(0, 0, Width - 1, Height - 1);
 
-            // Скругленные углы
-            using (GraphicsPath path = GetRoundedRect(rect, 12))
-            {
-                g.FillPath(new SolidBrush(BackColor), path);
+            Color bgColor = isPressed ? ColorScheme.SurfaceLight :
+                           isHovered ? ControlPaint.Light(ColorScheme.Surface, 0.05f) :
+                           ColorScheme.Surface;
 
-                // Граница
-                using (Pen pen = new Pen(Color.FromArgb(50, ColorScheme.AccentLight), 1))
+            using (GraphicsPath path = GetRoundedRect(rect, 14))
+            {
+                // Фон
+                g.FillPath(new SolidBrush(bgColor), path);
+
+                // Легкая граница
+                using (Pen pen = new Pen(Color.FromArgb(40, ColorScheme.AccentLight), 1))
                 {
                     g.DrawPath(pen, path);
                 }
@@ -271,7 +283,8 @@ namespace MacroRecorderPro.UI
             FlatStyle = FlatStyle.Flat;
             Cursor = Cursors.Hand;
             ForeColor = ColorScheme.TextPrimary;
-            Font = new Font("Segoe UI", 9);
+            Font = new Font("Segoe UI", 9.5f);
+            Padding = new Padding(0);
         }
     }
 
@@ -282,8 +295,8 @@ namespace MacroRecorderPro.UI
         {
             BackColor = ColorScheme.SurfaceLight;
             ForeColor = ColorScheme.TextPrimary;
-            BorderStyle = BorderStyle.None;
-            Font = new Font("Segoe UI", 9);
+            BorderStyle = BorderStyle.FixedSingle;
+            Font = new Font("Segoe UI", 10f);
         }
     }
 
@@ -300,15 +313,15 @@ namespace MacroRecorderPro.UI
     // Factory Pattern для создания UI элементов
     public static class UIFactory
     {
-        public static GradientButton CreateGradientButton(string text, int x, int y,
+        public static GradientButton CreateGradientButton(string text, int x, int y, int width,
             Color colorStart, Color colorMiddle, Color colorEnd)
         {
             var btn = new GradientButton
             {
                 Text = text,
-                Location = new Point(x + 10, y),
-                Size = new Size(450, 55),
-                Font = new Font("Segoe UI", 12, FontStyle.Bold),
+                Location = new Point(x, y),
+                Size = new Size(width, 50),
+                Font = new Font("Segoe UI", 11, FontStyle.Bold),
                 ForeColor = Color.White,
                 GradientColorStart = colorStart,
                 GradientColorMiddle = colorMiddle,
@@ -318,13 +331,13 @@ namespace MacroRecorderPro.UI
             return btn;
         }
 
-        public static ModernButton CreateModernButton(string text, int x, int y)
+        public static ModernButton CreateModernButton(string text, int x, int y, int width)
         {
             var btn = new ModernButton
             {
                 Text = text,
                 Location = new Point(x, y),
-                Size = new Size(145, 42)
+                Size = new Size(width, 40)
             };
             return btn;
         }
@@ -335,7 +348,8 @@ namespace MacroRecorderPro.UI
             {
                 Text = text,
                 Location = new Point(x, y),
-                Size = new Size(220, 25)
+                Size = new Size(180, 24),
+                AutoSize = false
             };
         }
 
@@ -345,8 +359,8 @@ namespace MacroRecorderPro.UI
             {
                 Text = text,
                 Location = new Point(x, y),
-                Size = new Size(width, 25),
-                Font = new Font("Segoe UI", 9),
+                Size = new Size(width, 28),
+                Font = new Font("Segoe UI", 9.5f),
                 ForeColor = ColorScheme.TextPrimary,
                 TextAlign = ContentAlignment.MiddleLeft,
                 BackColor = Color.Transparent
@@ -358,10 +372,11 @@ namespace MacroRecorderPro.UI
             var numeric = new ModernNumericUpDown
             {
                 Location = new Point(x, y),
-                Size = new Size(80, 30),
+                Size = new Size(85, 28),
                 Minimum = 1,
                 Maximum = 9999,
-                Value = 1
+                Value = 1,
+                TextAlign = HorizontalAlignment.Center
             };
             ApplyRoundedCorners(numeric, 8);
             return numeric;
@@ -372,11 +387,12 @@ namespace MacroRecorderPro.UI
             var track = new ModernTrackBar
             {
                 Location = new Point(x, y),
-                Size = new Size(300, 40),
+                Size = new Size(290, 35),
                 Minimum = 10,
                 Maximum = 500,
                 Value = 100,
-                TickFrequency = 50
+                TickFrequency = 50,
+                TickStyle = TickStyle.BottomRight
             };
             return track;
         }
@@ -401,37 +417,37 @@ namespace MacroRecorderPro.UI
         private static extern bool DeleteObject(IntPtr hObject);
     }
 
-    // Цветовая схема в стиле iOS 18 / HyperOS 3
+    // Улучшенная цветовая схема - более мягкая и приятная для глаз
     public static class ColorScheme
     {
         // Фоны - глубокий темный с фиолетовым оттенком
-        public static readonly Color Background = Color.FromArgb(10, 5, 20);         // Почти черный с фиолетовым
-        public static readonly Color Surface = Color.FromArgb(25, 15, 40);           // Темный фиолетовый
-        public static readonly Color SurfaceLight = Color.FromArgb(40, 25, 60);      // Средний фиолетовый
+        public static readonly Color Background = Color.FromArgb(12, 8, 24);
+        public static readonly Color Surface = Color.FromArgb(28, 20, 45);
+        public static readonly Color SurfaceLight = Color.FromArgb(42, 32, 60);
 
-        // Акцентные цвета - яркий фиолетово-розовый градиент
-        public static readonly Color AccentDark = Color.FromArgb(75, 0, 130);        // Глубокий индиго
-        public static readonly Color Accent = Color.FromArgb(138, 43, 226);          // Яркий фиолетовый
-        public static readonly Color AccentLight = Color.FromArgb(186, 85, 211);     // Светлый orchid
-        public static readonly Color AccentGlow = Color.FromArgb(218, 112, 214);     // Розово-фиолетовый
+        // Акцентные цвета - более мягкий фиолетово-синий градиент
+        public static readonly Color AccentDark = Color.FromArgb(85, 60, 154);
+        public static readonly Color Accent = Color.FromArgb(124, 88, 237);
+        public static readonly Color AccentLight = Color.FromArgb(167, 139, 250);
+        public static readonly Color AccentGlow = Color.FromArgb(196, 181, 253);
 
-        // Success - зеленый градиент
-        public static readonly Color SuccessDark = Color.FromArgb(0, 100, 80);       // Темный изумрудный
-        public static readonly Color Success = Color.FromArgb(16, 185, 129);         // Яркий изумрудный
-        public static readonly Color SuccessGlow = Color.FromArgb(110, 231, 183);    // Светлый мятный
+        // Success - приятный зеленый
+        public static readonly Color SuccessDark = Color.FromArgb(5, 150, 105);
+        public static readonly Color Success = Color.FromArgb(16, 185, 129);
+        public static readonly Color SuccessGlow = Color.FromArgb(52, 211, 153);
 
-        // Danger - красный градиент
-        public static readonly Color DangerDark = Color.FromArgb(153, 27, 27);       // Темный красный
-        public static readonly Color Danger = Color.FromArgb(239, 68, 68);           // Яркий красный
-        public static readonly Color DangerGlow = Color.FromArgb(252, 165, 165);     // Розовый
+        // Danger - мягкий красный
+        public static readonly Color DangerDark = Color.FromArgb(220, 38, 38);
+        public static readonly Color Danger = Color.FromArgb(239, 68, 68);
+        public static readonly Color DangerGlow = Color.FromArgb(248, 113, 113);
 
         // Дополнительные
-        public static readonly Color Warning = Color.FromArgb(245, 158, 11);         // Янтарный
-        public static readonly Color Info = Color.FromArgb(59, 130, 246);            // Синий
+        public static readonly Color Warning = Color.FromArgb(251, 191, 36);
+        public static readonly Color Info = Color.FromArgb(59, 130, 246);
 
-        // Текст
-        public static readonly Color TextPrimary = Color.FromArgb(248, 250, 252);    // Почти белый
-        public static readonly Color TextSecondary = Color.FromArgb(203, 213, 225);  // Светло-серый
-        public static readonly Color TextMuted = Color.FromArgb(148, 163, 184);      // Серый
+        // Текст - более контрастный и читаемый
+        public static readonly Color TextPrimary = Color.FromArgb(250, 250, 250);
+        public static readonly Color TextSecondary = Color.FromArgb(209, 213, 219);
+        public static readonly Color TextMuted = Color.FromArgb(156, 163, 175);
     }
 }
