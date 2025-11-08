@@ -50,11 +50,9 @@ namespace MacroRecorderPro.Core
             {
                 var precisionTimer = GetTimer();
                 precisionTimer.Start(); // Запускаем таймер
-
                 recorder = new MacroRecorder(
                     GetRepository(),
-                    precisionTimer,
-                    GetRecordingConfiguration()
+                    precisionTimer
                 );
             }
             return recorder;

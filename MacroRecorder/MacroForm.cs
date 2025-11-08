@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Windows.Forms;
 using MacroRecorderPro.Core;
 using MacroRecorderPro.Interfaces;
@@ -23,7 +24,8 @@ namespace MacroRecorderPro.UI
         private CheckBox chkRecordMouse, chkHighPrecision;
         private TrackBar trackSpeed;
         private NumericUpDown numLoops;
-        private Panel headerPanel, controlPanel, statusPanel;
+        private GradientPanel headerPanel, statusPanel;
+        private Panel controlPanel;
         private System.Windows.Forms.Timer updateTimer;
 
         public MacroForm()
@@ -75,9 +77,8 @@ namespace MacroRecorderPro.UI
             }
 
             btnRecord.Text = "■ STOP (F9)";
-            btnRecord.BackColor = ColorScheme.Danger;
             SetControlsEnabled(false);
-            UpdateStatus("● RECORDING...", ColorScheme.Danger);
+            UpdateStatus("● RECORDING...", ColorScheme.DangerGlow);
         }
 
         private void OnRecordingStopped(object sender, EventArgs e)
@@ -89,9 +90,8 @@ namespace MacroRecorderPro.UI
             }
 
             btnRecord.Text = "● RECORD (F9)";
-            btnRecord.BackColor = ColorScheme.Success;
             SetControlsEnabled(true);
-            UpdateStatus("✓ Recording Complete", ColorScheme.Success);
+            UpdateStatus("✓ Recording Complete", ColorScheme.SuccessGlow);
         }
 
         private void OnPlaybackStarted(object sender, EventArgs e)
@@ -103,9 +103,8 @@ namespace MacroRecorderPro.UI
             }
 
             btnPlay.Text = "■ STOP (Shift+Tab)";
-            btnPlay.BackColor = ColorScheme.Warning;
             SetControlsEnabled(false);
-            UpdateStatus($"▶ Playing at {trackSpeed.Value}% speed...", ColorScheme.Warning);
+            UpdateStatus($"▶ Playing at {trackSpeed.Value}% speed...", ColorScheme.AccentLight);
         }
 
         private void OnPlaybackStopped(object sender, EventArgs e)
@@ -117,9 +116,8 @@ namespace MacroRecorderPro.UI
             }
 
             btnPlay.Text = "▶ PLAY";
-            btnPlay.BackColor = ColorScheme.Primary;
             SetControlsEnabled(true);
-            UpdateStatus("⏹ Playback Stopped", ColorScheme.Gray);
+            UpdateStatus("⏹ Playback Stopped", ColorScheme.TextSecondary);
         }
 
         private void UpdateUI()
@@ -207,7 +205,7 @@ namespace MacroRecorderPro.UI
             }
 
             recorder.Clear();
-            UpdateStatus("Ready", ColorScheme.Gray);
+            UpdateStatus("Ready", ColorScheme.TextSecondary);
         }
 
         private void OnSaveClick(object sender, EventArgs e)
@@ -252,7 +250,7 @@ namespace MacroRecorderPro.UI
                     try
                     {
                         storage.Load(dialog.FileName);
-                        UpdateStatus("✓ Macro Loaded", ColorScheme.Success);
+                        UpdateStatus("✓ Macro Loaded", ColorScheme.SuccessGlow);
                         MessageBox.Show($"Loaded {repository.Count} actions successfully!", "Success",
                             MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
@@ -268,21 +266,17 @@ namespace MacroRecorderPro.UI
         protected override void OnFormClosing(FormClosingEventArgs e)
         {
             player.Stop();
-            //player.WaitForCompletion(2000);
-
             updateTimer?.Stop();
             updateTimer?.Dispose();
-
             coordinator?.Dispose();
-
             base.OnFormClosing(e);
         }
 
         private void InitializeUI()
         {
             Text = "Macro Recorder Pro";
-            ClientSize = new Size(450, 380);
-            MinimumSize = new Size(450, 380);
+            ClientSize = new Size(480, 420);
+            MinimumSize = new Size(480, 420);
             StartPosition = FormStartPosition.CenterScreen;
             FormBorderStyle = FormBorderStyle.Sizable;
             MaximizeBox = false;
@@ -298,20 +292,23 @@ namespace MacroRecorderPro.UI
 
         private void CreateHeaderPanel()
         {
-            headerPanel = new Panel
+            headerPanel = new GradientPanel
             {
                 Dock = DockStyle.Top,
-                Height = 50,
-                BackColor = ColorScheme.Surface
+                Height = 70,
+                GradientColorStart = ColorScheme.AccentDark,
+                GradientColorEnd = ColorScheme.AccentLight,
+                GradientAngle = 135f
             };
 
             var lblTitle = new Label
             {
                 Text = "MACRO RECORDER PRO",
                 Dock = DockStyle.Fill,
-                Font = new Font("Segoe UI", 11, FontStyle.Bold),
-                ForeColor = ColorScheme.Accent,
-                TextAlign = ContentAlignment.MiddleCenter
+                Font = new Font("Segoe UI", 14, FontStyle.Bold),
+                ForeColor = Color.White,
+                TextAlign = ContentAlignment.MiddleCenter,
+                BackColor = Color.Transparent
             };
             headerPanel.Controls.Add(lblTitle);
         }
@@ -322,41 +319,43 @@ namespace MacroRecorderPro.UI
             {
                 Dock = DockStyle.Fill,
                 BackColor = ColorScheme.Background,
-                Padding = new Padding(15, 10, 15, 10)
+                Padding = new Padding(20, 15, 20, 15)
             };
 
-            btnRecord = UIFactory.CreateButton("● RECORD (F9)", 0, 10, ColorScheme.Success);
+            btnRecord = UIFactory.CreateGradientButton("● RECORD (F9)", 0, 10,
+                ColorScheme.SuccessDark, ColorScheme.SuccessGlow);
             btnRecord.Click += OnRecordClick;
 
-            btnPlay = UIFactory.CreateButton("▶ PLAY", 0, 70, ColorScheme.Primary);
+            btnPlay = UIFactory.CreateGradientButton("▶ PLAY", 0, 75,
+                ColorScheme.AccentDark, ColorScheme.AccentLight);
             btnPlay.Click += OnPlayClick;
             btnPlay.Enabled = false;
 
-            var settingsY = 130;
+            var settingsY = 140;
 
             chkRecordMouse = UIFactory.CreateCheckBox("Record Mouse Moves", 10, settingsY);
             chkRecordMouse.Checked = true;
             chkRecordMouse.CheckedChanged += (s, e) => recordingConfig.RecordMouseMoves = chkRecordMouse.Checked;
 
-            chkHighPrecision = UIFactory.CreateCheckBox("High Precision", 220, settingsY);
-            chkHighPrecision.ForeColor = ColorScheme.Warning;
+            chkHighPrecision = UIFactory.CreateCheckBox("High Precision", 250, settingsY);
+            chkHighPrecision.ForeColor = ColorScheme.AccentLight;
             chkHighPrecision.CheckedChanged += (s, e) => recordingConfig.HighPrecision = chkHighPrecision.Checked;
 
-            var lblLoops = UIFactory.CreateLabel("Loops:", 10, settingsY + 35);
-            numLoops = UIFactory.CreateNumericUpDown(65, settingsY + 33);
+            var lblLoops = UIFactory.CreateLabel("Loops:", 10, settingsY + 40);
+            numLoops = UIFactory.CreateNumericUpDown(70, settingsY + 38);
 
-            lblSpeed = UIFactory.CreateLabel("Speed: 100%", 150, settingsY + 35, 90);
-            trackSpeed = UIFactory.CreateTrackBar(245, settingsY + 30);
+            lblSpeed = UIFactory.CreateLabel("Speed: 100%", 160, settingsY + 40, 100);
+            trackSpeed = UIFactory.CreateTrackBar(270, settingsY + 35);
             trackSpeed.ValueChanged += (s, e) => lblSpeed.Text = $"Speed: {trackSpeed.Value}%";
 
-            var btnY = settingsY + 75;
-            btnSave = UIFactory.CreateSmallButton("💾 Save", 10, btnY, ColorScheme.Secondary);
+            var btnY = settingsY + 85;
+            btnSave = UIFactory.CreateSmallButton("💾 Save", 10, btnY, ColorScheme.Surface);
             btnSave.Click += OnSaveClick;
 
-            btnLoad = UIFactory.CreateSmallButton("📂 Load", 145, btnY, ColorScheme.Secondary);
+            btnLoad = UIFactory.CreateSmallButton("📂 Load", 155, btnY, ColorScheme.Surface);
             btnLoad.Click += OnLoadClick;
 
-            btnClear = UIFactory.CreateSmallButton("🗑 Clear", 280, btnY, ColorScheme.Danger);
+            btnClear = UIFactory.CreateSmallButton("🗑 Clear", 300, btnY, ColorScheme.DangerDark);
             btnClear.Click += OnClearClick;
 
             controlPanel.Controls.AddRange(new Control[] {
@@ -368,31 +367,35 @@ namespace MacroRecorderPro.UI
 
         private void CreateStatusPanel()
         {
-            statusPanel = new Panel
+            statusPanel = new GradientPanel
             {
                 Dock = DockStyle.Bottom,
-                Height = 80,
-                BackColor = ColorScheme.Surface
+                Height = 90,
+                GradientColorStart = ColorScheme.Surface,
+                GradientColorEnd = ColorScheme.SurfaceLight,
+                GradientAngle = 45f
             };
 
             lblStatus = new Label
             {
                 Text = "Ready",
-                Location = new Point(10, 10),
-                Size = new Size(410, 25),
-                Font = new Font("Segoe UI", 9, FontStyle.Bold),
-                ForeColor = ColorScheme.Gray,
-                TextAlign = ContentAlignment.MiddleCenter
+                Location = new Point(15, 15),
+                Size = new Size(450, 30),
+                Font = new Font("Segoe UI", 11, FontStyle.Bold),
+                ForeColor = ColorScheme.TextSecondary,
+                TextAlign = ContentAlignment.MiddleCenter,
+                BackColor = Color.Transparent
             };
 
             lblCount = new Label
             {
                 Text = "Actions: 0 | Duration: 0.0s",
-                Location = new Point(10, 40),
-                Size = new Size(410, 30),
-                Font = new Font("Segoe UI", 8.5f),
-                ForeColor = ColorScheme.Gray,
-                TextAlign = ContentAlignment.TopCenter
+                Location = new Point(15, 50),
+                Size = new Size(450, 25),
+                Font = new Font("Segoe UI", 9f),
+                ForeColor = ColorScheme.TextSecondary,
+                TextAlign = ContentAlignment.TopCenter,
+                BackColor = Color.Transparent
             };
 
             statusPanel.Controls.AddRange(new Control[] { lblStatus, lblCount });

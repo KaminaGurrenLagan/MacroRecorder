@@ -3,64 +3,12 @@
   "WorkspaceRootPath": "D:\\C#\\dddd\\MacroRecorder\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A77BC733-1D5F-474C-A3E0-D89F34C5E319}|MacroRecorder\\MacroRecorder.csproj|d:\\c#\\dddd\\macrorecorder\\macrorecorder\\iinputhook.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A77BC733-1D5F-474C-A3E0-D89F34C5E319}|MacroRecorder\\MacroRecorder.csproj|solutionrelative:macrorecorder\\iinputhook.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A77BC733-1D5F-474C-A3E0-D89F34C5E319}|MacroRecorder\\MacroRecorder.csproj|d:\\c#\\dddd\\macrorecorder\\macrorecorder\\macroform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A77BC733-1D5F-474C-A3E0-D89F34C5E319}|MacroRecorder\\MacroRecorder.csproj|solutionrelative:macrorecorder\\macroform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A77BC733-1D5F-474C-A3E0-D89F34C5E319}|MacroRecorder\\MacroRecorder.csproj|d:\\c#\\dddd\\macrorecorder\\macrorecorder\\macrorecorder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A77BC733-1D5F-474C-A3E0-D89F34C5E319}|MacroRecorder\\MacroRecorder.csproj|solutionrelative:macrorecorder\\macrorecorder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A77BC733-1D5F-474C-A3E0-D89F34C5E319}|MacroRecorder\\MacroRecorder.csproj|d:\\c#\\dddd\\macrorecorder\\macrorecorder\\macrocoordinator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A77BC733-1D5F-474C-A3E0-D89F34C5E319}|MacroRecorder\\MacroRecorder.csproj|solutionrelative:macrorecorder\\macrocoordinator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A77BC733-1D5F-474C-A3E0-D89F34C5E319}|MacroRecorder\\MacroRecorder.csproj|d:\\c#\\dddd\\macrorecorder\\macrorecorder\\macroplayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A77BC733-1D5F-474C-A3E0-D89F34C5E319}|MacroRecorder\\MacroRecorder.csproj|solutionrelative:macrorecorder\\macroplayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A77BC733-1D5F-474C-A3E0-D89F34C5E319}|MacroRecorder\\MacroRecorder.csproj|d:\\c#\\dddd\\macrorecorder\\macrorecorder\\mousehook.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A77BC733-1D5F-474C-A3E0-D89F34C5E319}|MacroRecorder\\MacroRecorder.csproj|solutionrelative:macrorecorder\\mousehook.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A77BC733-1D5F-474C-A3E0-D89F34C5E319}|MacroRecorder\\MacroRecorder.csproj|d:\\c#\\dddd\\macrorecorder\\macrorecorder\\nativestructs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A77BC733-1D5F-474C-A3E0-D89F34C5E319}|MacroRecorder\\MacroRecorder.csproj|solutionrelative:macrorecorder\\nativestructs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A77BC733-1D5F-474C-A3E0-D89F34C5E319}|MacroRecorder\\MacroRecorder.csproj|d:\\c#\\dddd\\macrorecorder\\macrorecorder\\macroaction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A77BC733-1D5F-474C-A3E0-D89F34C5E319}|MacroRecorder\\MacroRecorder.csproj|solutionrelative:macrorecorder\\macroaction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A77BC733-1D5F-474C-A3E0-D89F34C5E319}|MacroRecorder\\MacroRecorder.csproj|d:\\c#\\dddd\\macrorecorder\\macrorecorder\\actionexecutor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A77BC733-1D5F-474C-A3E0-D89F34C5E319}|MacroRecorder\\MacroRecorder.csproj|solutionrelative:macrorecorder\\actionexecutor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A77BC733-1D5F-474C-A3E0-D89F34C5E319}|MacroRecorder\\MacroRecorder.csproj|d:\\c#\\dddd\\macrorecorder\\macrorecorder\\keyboardhook.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A77BC733-1D5F-474C-A3E0-D89F34C5E319}|MacroRecorder\\MacroRecorder.csproj|solutionrelative:macrorecorder\\keyboardhook.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A77BC733-1D5F-474C-A3E0-D89F34C5E319}|MacroRecorder\\MacroRecorder.csproj|d:\\c#\\dddd\\macrorecorder\\macrorecorder\\uifactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{A77BC733-1D5F-474C-A3E0-D89F34C5E319}|MacroRecorder\\MacroRecorder.csproj|D:\\C#\\dddd\\MacroRecorder\\macrorecorder\\uifactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A77BC733-1D5F-474C-A3E0-D89F34C5E319}|MacroRecorder\\MacroRecorder.csproj|solutionrelative:macrorecorder\\uifactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A77BC733-1D5F-474C-A3E0-D89F34C5E319}|MacroRecorder\\MacroRecorder.csproj|d:\\c#\\dddd\\macrorecorder\\macrorecorder\\playbackconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A77BC733-1D5F-474C-A3E0-D89F34C5E319}|MacroRecorder\\MacroRecorder.csproj|solutionrelative:macrorecorder\\playbackconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A77BC733-1D5F-474C-A3E0-D89F34C5E319}|MacroRecorder\\MacroRecorder.csproj|d:\\c#\\dddd\\macrorecorder\\macrorecorder\\recordingconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A77BC733-1D5F-474C-A3E0-D89F34C5E319}|MacroRecorder\\MacroRecorder.csproj|solutionrelative:macrorecorder\\recordingconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A77BC733-1D5F-474C-A3E0-D89F34C5E319}|MacroRecorder\\MacroRecorder.csproj|d:\\c#\\dddd\\macrorecorder\\macrorecorder\\macrorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A77BC733-1D5F-474C-A3E0-D89F34C5E319}|MacroRecorder\\MacroRecorder.csproj|solutionrelative:macrorecorder\\macrorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A77BC733-1D5F-474C-A3E0-D89F34C5E319}|MacroRecorder\\MacroRecorder.csproj|d:\\c#\\dddd\\macrorecorder\\macrorecorder\\precisiontimer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A77BC733-1D5F-474C-A3E0-D89F34C5E319}|MacroRecorder\\MacroRecorder.csproj|solutionrelative:macrorecorder\\precisiontimer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A77BC733-1D5F-474C-A3E0-D89F34C5E319}|MacroRecorder\\MacroRecorder.csproj|d:\\c#\\dddd\\macrorecorder\\macrorecorder\\nativemethods.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A77BC733-1D5F-474C-A3E0-D89F34C5E319}|MacroRecorder\\MacroRecorder.csproj|solutionrelative:macrorecorder\\nativemethods.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A77BC733-1D5F-474C-A3E0-D89F34C5E319}|MacroRecorder\\MacroRecorder.csproj|D:\\C#\\dddd\\MacroRecorder\\macrorecorder\\form1.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -74,7 +22,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -82,197 +30,15 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "MacroCoordinator.cs",
-              "DocumentMoniker": "D:\\C#\\dddd\\MacroRecorder\\MacroRecorder\\MacroCoordinator.cs",
-              "RelativeDocumentMoniker": "MacroRecorder\\MacroCoordinator.cs",
-              "ToolTip": "D:\\C#\\dddd\\MacroRecorder\\MacroRecorder\\MacroCoordinator.cs",
-              "RelativeToolTip": "MacroRecorder\\MacroCoordinator.cs",
-              "ViewState": "AgIAADkAAAAAAAAAAAAYwEsAAAANAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-08T10:47:09.222Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "MacroPlayer.cs",
-              "DocumentMoniker": "D:\\C#\\dddd\\MacroRecorder\\MacroRecorder\\MacroPlayer.cs",
-              "RelativeDocumentMoniker": "MacroRecorder\\MacroPlayer.cs",
-              "ToolTip": "D:\\C#\\dddd\\MacroRecorder\\MacroRecorder\\MacroPlayer.cs",
-              "RelativeToolTip": "MacroRecorder\\MacroPlayer.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAwAAAAfAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-08T10:46:07.08Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "MacroRecorder.cs",
-              "DocumentMoniker": "D:\\C#\\dddd\\MacroRecorder\\MacroRecorder\\MacroRecorder.cs",
-              "RelativeDocumentMoniker": "MacroRecorder\\MacroRecorder.cs",
-              "ToolTip": "D:\\C#\\dddd\\MacroRecorder\\MacroRecorder\\MacroRecorder.cs",
-              "RelativeToolTip": "MacroRecorder\\MacroRecorder.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAvAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-08T10:45:42.462Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "IInputHook.cs",
-              "DocumentMoniker": "D:\\C#\\dddd\\MacroRecorder\\MacroRecorder\\IInputHook.cs",
-              "RelativeDocumentMoniker": "MacroRecorder\\IInputHook.cs",
-              "ToolTip": "D:\\C#\\dddd\\MacroRecorder\\MacroRecorder\\IInputHook.cs",
-              "RelativeToolTip": "MacroRecorder\\IInputHook.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAABMAAAAAAAAAA==",
+              "Title": "MacroForm.cs",
+              "DocumentMoniker": "D:\\C#\\dddd\\MacroRecorder\\MacroRecorder\\MacroForm.cs",
+              "RelativeDocumentMoniker": "MacroRecorder\\MacroForm.cs",
+              "ToolTip": "D:\\C#\\dddd\\MacroRecorder\\MacroRecorder\\MacroForm.cs",
+              "RelativeToolTip": "MacroRecorder\\MacroForm.cs",
+              "ViewState": "AgIAAHYBAAAAAAAAAAAqwJMBAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-08T10:40:41.759Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "MouseHook.cs",
-              "DocumentMoniker": "D:\\C#\\dddd\\MacroRecorder\\MacroRecorder\\MouseHook.cs",
-              "RelativeDocumentMoniker": "MacroRecorder\\MouseHook.cs",
-              "ToolTip": "D:\\C#\\dddd\\MacroRecorder\\MacroRecorder\\MouseHook.cs",
-              "RelativeToolTip": "MacroRecorder\\MouseHook.cs",
-              "ViewState": "AgIAADcAAAAAAAAAAAAkwE8AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-08T10:45:11.366Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "KeyboardHook.cs",
-              "DocumentMoniker": "D:\\C#\\dddd\\MacroRecorder\\MacroRecorder\\KeyboardHook.cs",
-              "RelativeDocumentMoniker": "MacroRecorder\\KeyboardHook.cs",
-              "ToolTip": "D:\\C#\\dddd\\MacroRecorder\\MacroRecorder\\KeyboardHook.cs",
-              "RelativeToolTip": "MacroRecorder\\KeyboardHook.cs",
-              "ViewState": "AgIAAEIAAAAAAAAAAAAowEoAAAAyAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-08T10:44:39.886Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "ActionExecutor.cs",
-              "DocumentMoniker": "D:\\C#\\dddd\\MacroRecorder\\MacroRecorder\\ActionExecutor.cs",
-              "RelativeDocumentMoniker": "MacroRecorder\\ActionExecutor.cs",
-              "ToolTip": "D:\\C#\\dddd\\MacroRecorder\\MacroRecorder\\ActionExecutor.cs",
-              "RelativeToolTip": "MacroRecorder\\ActionExecutor.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFQAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-08T10:44:13.657Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "MacroAction.cs",
-              "DocumentMoniker": "D:\\C#\\dddd\\MacroRecorder\\MacroRecorder\\MacroAction.cs",
-              "RelativeDocumentMoniker": "MacroRecorder\\MacroAction.cs",
-              "ToolTip": "D:\\C#\\dddd\\MacroRecorder\\MacroRecorder\\MacroAction.cs",
-              "RelativeToolTip": "MacroRecorder\\MacroAction.cs",
-              "ViewState": "AgIAABgAAAAAAAAAAAAowCIAAAArAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-08T10:39:34.825Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "NativeStructs.cs",
-              "DocumentMoniker": "D:\\C#\\dddd\\MacroRecorder\\MacroRecorder\\NativeStructs.cs",
-              "RelativeDocumentMoniker": "MacroRecorder\\NativeStructs.cs",
-              "ToolTip": "D:\\C#\\dddd\\MacroRecorder\\MacroRecorder\\NativeStructs.cs",
-              "RelativeToolTip": "MacroRecorder\\NativeStructs.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAUAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-08T10:41:05.606Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "UIFactory.cs",
-              "DocumentMoniker": "D:\\C#\\dddd\\MacroRecorder\\MacroRecorder\\UIFactory.cs",
-              "RelativeDocumentMoniker": "MacroRecorder\\UIFactory.cs",
-              "ToolTip": "D:\\C#\\dddd\\MacroRecorder\\MacroRecorder\\UIFactory.cs",
-              "RelativeToolTip": "MacroRecorder\\UIFactory.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAHEAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-08T10:48:52.123Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "PlaybackConfiguration.cs",
-              "DocumentMoniker": "D:\\C#\\dddd\\MacroRecorder\\MacroRecorder\\PlaybackConfiguration.cs",
-              "RelativeDocumentMoniker": "MacroRecorder\\PlaybackConfiguration.cs",
-              "ToolTip": "D:\\C#\\dddd\\MacroRecorder\\MacroRecorder\\PlaybackConfiguration.cs",
-              "RelativeToolTip": "MacroRecorder\\PlaybackConfiguration.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-08T10:43:22.208Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "RecordingConfiguration.cs",
-              "DocumentMoniker": "D:\\C#\\dddd\\MacroRecorder\\MacroRecorder\\RecordingConfiguration.cs",
-              "RelativeDocumentMoniker": "MacroRecorder\\RecordingConfiguration.cs",
-              "ToolTip": "D:\\C#\\dddd\\MacroRecorder\\MacroRecorder\\RecordingConfiguration.cs",
-              "RelativeToolTip": "MacroRecorder\\RecordingConfiguration.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-08T10:43:00.686Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "MacroRepository.cs",
-              "DocumentMoniker": "D:\\C#\\dddd\\MacroRecorder\\MacroRecorder\\MacroRepository.cs",
-              "RelativeDocumentMoniker": "MacroRecorder\\MacroRepository.cs",
-              "ToolTip": "D:\\C#\\dddd\\MacroRecorder\\MacroRecorder\\MacroRepository.cs",
-              "RelativeToolTip": "MacroRecorder\\MacroRepository.cs",
-              "ViewState": "AgIAAB4AAAAAAAAAAAAgwDkAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-08T10:42:27.271Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "PrecisionTimer.cs",
-              "DocumentMoniker": "D:\\C#\\dddd\\MacroRecorder\\MacroRecorder\\PrecisionTimer.cs",
-              "RelativeDocumentMoniker": "MacroRecorder\\PrecisionTimer.cs",
-              "ToolTip": "D:\\C#\\dddd\\MacroRecorder\\MacroRecorder\\PrecisionTimer.cs",
-              "RelativeToolTip": "MacroRecorder\\PrecisionTimer.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-08T10:41:50.942Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "NativeMethods.cs",
-              "DocumentMoniker": "D:\\C#\\dddd\\MacroRecorder\\MacroRecorder\\NativeMethods.cs",
-              "RelativeDocumentMoniker": "MacroRecorder\\NativeMethods.cs",
-              "ToolTip": "D:\\C#\\dddd\\MacroRecorder\\MacroRecorder\\NativeMethods.cs",
-              "RelativeToolTip": "MacroRecorder\\NativeMethods.cs",
-              "ViewState": "AgIAADQAAAAAAAAAAAAgwE8AAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-08T10:41:29.062Z",
+              "WhenOpened": "2025-11-08T12:28:48.59Z",
               "EditorCaption": ""
             },
             {
@@ -285,13 +51,26 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 1,
+              "Title": "UIFactory.cs",
+              "DocumentMoniker": "D:\\C#\\dddd\\MacroRecorder\\MacroRecorder\\UIFactory.cs",
+              "RelativeDocumentMoniker": "MacroRecorder\\UIFactory.cs",
+              "ToolTip": "D:\\C#\\dddd\\MacroRecorder\\MacroRecorder\\UIFactory.cs",
+              "RelativeToolTip": "MacroRecorder\\UIFactory.cs",
+              "ViewState": "AgIAANwAAAAAAAAAAAAqwPkAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-08T10:48:52.123Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "Form1.Designer.cs",
               "DocumentMoniker": "D:\\C#\\dddd\\MacroRecorder\\MacroRecorder\\Form1.Designer.cs",
               "RelativeDocumentMoniker": "MacroRecorder\\Form1.Designer.cs",
               "ToolTip": "D:\\C#\\dddd\\MacroRecorder\\MacroRecorder\\Form1.Designer.cs",
               "RelativeToolTip": "MacroRecorder\\Form1.Designer.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAIAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-06T19:53:58.996Z",
               "EditorCaption": ""
