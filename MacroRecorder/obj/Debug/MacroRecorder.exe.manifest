@@ -54,14 +54,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="MacroRecorder.exe" size="24552">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="MacroRecorder.exe" size="26600">
       <assemblyIdentity name="MacroRecorder" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>5HPul/7MmeGNueTtE5BXtUr5fDmfKSU5nLzmWoqJsF4=</dsig:DigestValue>
+        <dsig:DigestValue>/pX2KnjoWegA+SNC+BZ7TEJVd7fJTTUUS2XWqq8eac4=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
